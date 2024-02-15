@@ -21,7 +21,7 @@ function Header() {
 								<span className="icon-bar"></span>
 							</button>
 						)}
-						<Link to="/" className="navbar-brand"><span className="navbar-logo"></span> <b>Color</b> Admin</Link>
+						<Link to="/" className="navbar-brand"><span className="navbar-logo"></span> <b>Money</b> Flash</Link>
 						
 						{appHeaderMegaMenu && (
 							<button type="button" className="navbar-mobile-toggler" data-bs-toggle="collapse" data-bs-target="#top-navbar">
@@ -61,7 +61,7 @@ function Header() {
 					
 					<div className="navbar-nav">
 						<SearchForm />
-						<DropdownNotification />
+						{/* <DropdownNotification /> */}
 						
 						{appHeaderLanguageBar && (
 							<DropdownLanguage />

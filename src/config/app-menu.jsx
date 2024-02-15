@@ -1,25 +1,26 @@
 const Menu = [
-  { path: 'dashboard', icon: 'fa fa-sitemap', title: 'Dashboard',
+  { path: 'dashboard', icon: 'fa fa-sitemap', title: 'Gerencial',
     children: [
-      { path: 'dashboard/v1', title: 'Dashboard v1' },
-      { path: 'dashboard/v2', title: 'Dashboard v2' },
-      { path: 'dashboard/v3', title: 'Dashboard v3' }
+      { path: 'dashboard/v1', title: 'Giros/Transferencias' },
+      { path: 'dashboard/v2', title: 'Totales' },
+      { path: 'dashboard/v3', title: 'Ticket Mensaje' }
     ]
   },
-  { path: '/email', icon: 'fa fa-hdd', title: 'Email', badge: '10',
+  { path: '/email', icon: 'fa fa-hdd', title: 'Recepcion', badge: '10',
     children: [
-      { path: '/email/inbox', title: 'Inbox' },
+   /*    { path: '/email/inbox', title: 'Inbox' },
       { path: '/email/compose', title: 'Compose' },
-      { path: '/email/detail', title: 'Detail' }
+      { path: '/email/detail', title: 'Detail' } */
     ]
   },
-  { path: '/widgets', icon: 'fab fa-simplybuilt', title: 'Widgets', label: 'NEW' },
-  { path: '/ui', icon: 'fa fa-gem', title: 'UI Elements', label: 'NEW',
+/*   { path: '/widgets', icon: 'fab fa-simplybuilt', title: 'Entrega', label: 'NEW' }, */
+  { path: '/widgets', icon: 'fab fa-simplybuilt', title: 'Entrega' },
+  { path: '/ui', icon: 'fa fa-gem', title: 'Herramientas', label: 'NEW',
     children: [
-      { path: '/ui/general', title: 'General', highlight: true },
-      { path: '/ui/typography', title: 'Typograhy' },
-      { path: '/ui/tabs-accordion', title: 'Tabs & Accordion' },
-      { path: '/ui/modal-notification', title: 'Modal & Notification' },
+      { path: '/ui/general', title: 'Supervisa', highlight: true },
+      { path: '/ui/typography', title: 'Cierre Diario' },
+      { path: '/ui/tabs-accordion', title: 'Boletas' },
+     /*  { path: '/ui/modal-notification', title: 'Modal & Notification' },
       { path: '/ui/widget-boxes', title: 'Widget Boxes' },
       { path: '/ui/media-object', title: 'Media Object' },
       { path: '/ui/buttons', title: 'Buttons', highlight: true },
@@ -28,39 +29,44 @@ const Menu = [
       { path: '/ui/icon-bootstrap', title: 'Bootstrap Icons', highlight: true },
       { path: '/ui/icon-simple-line-icons', title: 'Simple Line Icons' },
       { path: '/ui/language-bar-icon', title: 'Language Bar & Icon' },
-      { path: '/ui/social-buttons', title: 'Social Buttons' }
+      { path: '/ui/social-buttons', title: 'Social Buttons' } */
     ]
   },
-  { path: '/bootstrap-5', img: '/assets/img/logo/logo-bs5.png', title: 'Bootstrap 5', label: 'NEW' },
+  /* { path: '/bootstrap-5', img: '/assets/img/logo/logo-bs5.png', title: 'Bootstrap 5', label: 'NEW' },
   { path: '/form', icon: 'fa fa-list-ol', title: 'Form Stuff', label: 'NEW',
     children: [
       { path: '/form/elements', title: 'Form Elements', highlight: true },
       { path: '/form/plugins', title: 'Form Plugins', highlight: true },
       { path: '/form/wizards', title: 'Form Wizards', highlight: true }
     ]
-  },
-  { path: '/table', icon: 'fa fa-table', title: 'Tables',
+  }, */
+  { path: '/table', icon: 'fa fa-table', title: 'Tablas',
     children: [
-      { path: '/table/elements', title: 'Table Elements' },
-      { path: '/table/plugins', title: 'Table Plugins' }
+      { path: '/table/elements', title: 'Usuarios' },
+      { path: '/table/plugins', title: 'Sucursales' },
+      { path: '/table/plugins', title: 'Bancos' },
+      { path: '/table/plugins', title: 'Agentes' },
+      { path: '/table/plugins', title: 'Transacciones' },
+      { path: '/table/plugins', title: 'Clientes' },
+      { path: '/table/plugins', title: 'Conceptos' }
     ]
   },
-  { path: '/pos', icon: 'fa fa-cash-register', title: 'POS System', label: 'NEW',
+  { path: '/pos', icon: 'fa fa-cash-register', title: 'Cuentas', label: 'NEW',
     children: [
-      { path: '/pos/customer-order', title: 'Customer Order' },
-      { path: '/pos/kitchen-order', title: 'Kitchen Order' },
-      { path: '/pos/counter-checkout', title: 'Counter Checkout' },
+      { path: '/pos/customer-order', title: 'Agentes' },
+      { path: '/pos/kitchen-order', title: 'Cuentas Asociado' },
+      /* { path: '/pos/counter-checkout', title: 'Counter Checkout' },
       { path: '/pos/table-booking', title: 'Table Booking' },
-      { path: '/pos/menu-stock', title: 'Menu Stock' },
+      { path: '/pos/menu-stock', title: 'Menu Stock' }, */
     ]
   },
-  { path: '/chart', icon: 'fa fa-chart-pie', title: 'Chart', label: 'NEW',
+  /* { path: '/chart', icon: 'fa fa-chart-pie', title: 'Chart', label: 'NEW',
     children: [
       { path: '/chart/js', title: 'Chart JS' },
       { path: '/chart/apex', title: 'Apex Chart', highlight: true }
     ]
-  },
-  { path: '/calendar', icon: 'fa fa-calendar', title: 'Calendar' },
+  }, */
+/*   { path: '/calendar', icon: 'fa fa-calendar', title: 'Calendar' },
   { path: '/map', icon: 'fa fa-map', title: 'Map' },
   { path: '/gallery', icon: 'fa fa-image', title: 'Gallery' },
   { path: '/page-option', icon: 'fa fa-cogs', title: 'Page Options', label: 'NEW',
@@ -104,21 +110,22 @@ const Menu = [
       { path: '/extra/data-management', title: 'Data Management', highlight: true },
       { path: '/extra/settings-page', title: 'Settings Page', highlight: true }
     ]
-  },
-  { path: '/user', icon: 'fa fa-key', title: 'Login & Register',
-    children: [
-      { path: '/user/login-v1', title: 'Login' },
-      { path: '/user/login-v2', title: 'Login v2' },
-      { path: '/user/login-v3', title: 'Login v3' },
-      { path: '/user/register-v3', title: 'Register v3' }
-    ]
-  },
+  }, */
+  
   { path: '/helper', icon: 'fa fa-medkit', title: 'Helper',
     children: [
       { path: '/helper/css', title: 'Predefined CSS Classes' }
     ]
   },
-  { path: '/menu', icon: 'fa fa-align-left', title: 'Menu Level',
+  { path: '/user', icon: 'fa fa-key', title: 'Login & Registro',
+    children: [
+      /* { path: '/user/login-v1', title: 'Login' },
+      { path: '/user/login-v2', title: 'Login v2' }, */
+      { path: '/user/login-v3', title: 'Login v3' },
+      { path: '/user/register-v3', title: 'Register v3' }
+    ]
+  },
+  /* { path: '/menu', icon: 'fa fa-align-left', title: 'Menu Level',
     children: [
       { path: '/menu/menu-1-1', title: 'Menu 1.1',
         children: [
@@ -135,7 +142,7 @@ const Menu = [
       { path: '/menu/menu-1-2', title: 'Menu 1.2' },
       { path: '/menu/menu-1-3', title: 'Menu 1.3' },
     ]
-  },
+  }, */
 ]
 
 export default Menu;

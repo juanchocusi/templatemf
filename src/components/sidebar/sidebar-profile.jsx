@@ -40,7 +40,7 @@ function SidebarProfile() {
 									</div>
 									<div className="menu-caret ms-auto"></div>
 								</div>
-								<small>Super Admin </small>
+								<small>Money Flash Secocha </small>
 							</div>
 						</Link>
 					</div>
@@ -48,7 +48,7 @@ function SidebarProfile() {
 						<div className="menu-item pt-5px">
 							<Link to="/" className="menu-link">
 								<div className="menu-icon"><i className="fa fa-cog"></i></div>
-								<div className="menu-text">Settings</div>
+								<div className="menu-text">Configurar</div>
 							</Link>
 						</div>
 						{/* <div className="menu-item">

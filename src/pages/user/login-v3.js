@@ -34,10 +34,10 @@ function LoginV3() {
       <div className="news-feed">
         <div className="news-image" style={{backgroundImage: 'url(/assets/img/login-bg/login-bg-11.jpg)'}}></div>
         <div className="news-caption">
-          <h4 className="caption-title"><b>Color</b> Admin App</h4>
-          <p>
+          <h4 className="caption-title"><b>Money Flash</b> Sistema</h4>
+          {/* <p>
             Download the Color Admin app for iPhone®, iPad®, and Android™. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
+          </p> */}
         </div>
       </div>
       <div className="login-container">
@@ -45,9 +45,9 @@ function LoginV3() {
           <div className="brand">
             <div className="d-flex align-items-center">
               <span className="logo"></span>
-              <b>Color</b> Admin
+              <b>Money</b> Flash
             </div>
-            <small>Bootstrap 5 Responsive Admin Template</small>
+            <small>Sistema de Gestion </small>
           </div>
           <div className="icon">
             <i className="fa fa-sign-in-alt"></i>
@@ -55,9 +55,13 @@ function LoginV3() {
         </div>
         <div className="login-content">
           <form onSubmit={handleSubmit} className="fs-13px">
+          <div className="form-floating mb-15px">
+              <input type="text" className="form-control h-45px fs-13px" placeholder="Cod. Suursal" id="emailAddress" />
+              <label htmlFor="emailAddress" className="d-flex align-items-center fs-13px text-gray-600">Cod. Sucursal</label>
+            </div>
             <div className="form-floating mb-15px">
-              <input type="text" className="form-control h-45px fs-13px" placeholder="Email Address" id="emailAddress" />
-              <label htmlFor="emailAddress" className="d-flex align-items-center fs-13px text-gray-600">Email Address</label>
+              <input type="text" className="form-control h-45px fs-13px" placeholder="Correo Electronico" id="emailAddress" />
+              <label htmlFor="emailAddress" className="d-flex align-items-center fs-13px text-gray-600">Correo Electronico</label>
             </div>
             <div className="form-floating mb-15px">
               <input type="password" className="form-control h-45px fs-13px" placeholder="Password" id="password" />
@@ -66,18 +70,18 @@ function LoginV3() {
             <div className="form-check mb-30px">
               <input className="form-check-input" type="checkbox" value="1" id="rememberMe" />
               <label className="form-check-label" htmlFor="rememberMe">
-                Remember Me
+                Recuerdame
               </label>
             </div>
             <div className="mb-15px">
-              <button type="submit" className="btn btn-theme d-block h-45px w-100 btn-lg fs-14px">Sign me in</button>
+              <button type="submit" className="btn btn-theme d-block h-45px w-100 btn-lg fs-14px">Ingresar</button>
             </div>
-            <div className="mb-40px pb-40px text-body">
+           {/*  <div className="mb-40px pb-40px text-body">
               Not a member yet? Click <Link to="/user/register-v3" className="text-primary">here</Link> to register.
-            </div>
+            </div> */}
             <hr className="bg-gray-600 opacity-2" />
             <div className="text-gray-600 text-center text-gray-500-darker mb-0">
-              &copy; Color Admin All Right Reserved 2023
+              &copy; Money Flash - Todos los derechos reservados 2024
             </div>
           </form>
         </div>

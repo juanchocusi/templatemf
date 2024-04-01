@@ -78,6 +78,8 @@ import LoginV2 from './../pages/user/login-v2.js';
 import LoginV3 from './../pages/user/login-v3.js';
 import RegisterV3 from './../pages/user/register-v3.js';
 import HelperCSS from './../pages/helper/helper-css.js';
+import Recepcion from './../pages/form/recepcion.js';
+
 
 const AppRoute = [
   {
@@ -87,6 +89,7 @@ const AppRoute = [
     	{
 				path: '', 
 				element: <DashboardV3 />
+				/* element:<LoginV3 /> */
 			},
     	{
 				path: 'dashboard/*', 
@@ -241,7 +244,13 @@ const AppRoute = [
 			{
 				path: 'helper/css', 
 				element: <HelperCSS />
+			},
+			
+			{
+				path: 'recepcion', 
+				element: <Recepcion />
 			}
+			
 		]
   }
 ];

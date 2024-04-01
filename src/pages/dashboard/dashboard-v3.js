@@ -5,6 +5,8 @@ import Chart from 'react-apexcharts';
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 import Moment from 'moment';
 import 'bootstrap-daterangepicker/daterangepicker.css';
+import { Panel, PanelHeader, PanelFooter } from './../../components/panel/panel.jsx';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 function DashboardV2() {
 
@@ -57,7 +59,7 @@ function DashboardV2() {
 	}
 	
 	var visitorChartSeries = [{ 
-		name: 'Unique Visitors', 
+		name: 'Recepcion', 
 		data: [
 			[handleGetDate(77), 13], [handleGetDate(76), 13], [handleGetDate(75), 6 ], 
 			[handleGetDate(73), 6 ], [handleGetDate(72), 6 ], [handleGetDate(71), 5 ], [handleGetDate(70), 5 ], 
@@ -81,7 +83,7 @@ function DashboardV2() {
 			[handleGetDate(1) , 7 ], [handleGetDate(0) , 7 ]
 		]
 	}, { 
-		name: 'Page Views', 
+		name: 'Por Entregar', 
 		data: [
 			[handleGetDate(77), 14], [handleGetDate(76), 13], [handleGetDate(75), 15], 
 			[handleGetDate(73), 14], [handleGetDate(72), 13], [handleGetDate(71), 15], [handleGetDate(70), 16], 
@@ -121,7 +123,7 @@ function DashboardV2() {
 			labels: { style: { colors: '#ffffff' } }
 		},
 		yaxis: { labels: { style: { colors: '#ffffff' } } },
-		tooltip: { y: { formatter: function (val) { return "$ " + val + " thousands" } } },
+		tooltip: { y: { formatter: function (val) { return "S/  " + val + " thousands" } } },
 		chart: { height: '100%', type: 'area', toolbar: { show: false }, stacked: true },
 		plotOptions: { bar: { horizontal: false, columnWidth: '55%', endingShape: 'rounded' } },
 		dataLabels: { enabled: false },
@@ -160,7 +162,7 @@ function DashboardV2() {
 			x: { show: false },
 			y: {
 				title: { formatter: function (seriesName) { return '' } },
-				formatter: (value) => { return '$'+ convertNumberWithCommas(value) },
+				formatter: (value) => { return 'S/ '+ convertNumberWithCommas(value) },
 			},
 			marker: { show: false }
 		},
@@ -269,11 +271,11 @@ function DashboardV2() {
 	return (
 		<div>
 			<ol className="breadcrumb float-xl-end">
-				<li className="breadcrumb-item"><Link to="/dashboard/v3">Home</Link></li>
+				<li className="breadcrumb-item"><Link to="/dashboard/v3">Inicio</Link></li>
 				<li className="breadcrumb-item"><Link to="/dashboard/v3">Dashboard</Link></li>
 				<li className="breadcrumb-item active">Dashboard v3</li>
 			</ol>
-			<h1 className="page-header mb-3">Dashboard v3</h1>
+			<h1 className="page-header mb-3">Dashboard Money Flash</h1>
 			<div className="d-sm-flex align-items-center mb-3">
 				<DateRangePicker startDate={startDate} endDate={endDate} onApply={handleDateApplyEvent}>
 					<button className="btn btn-inverse me-2 text-truncate">
@@ -282,8 +284,9 @@ function DashboardV2() {
 						<b className="caret ms-1 opacity-5"></b>
 					</button>
 				</DateRangePicker>
-				<div className="text-gray-600 fw-bold mt-2 mt-sm-0">compared to <span>{dateRange.prevWeek}</span></div>
+				<div className="text-gray-600 fw-bold mt-2 mt-sm-0">Comparado con <span>{dateRange.prevWeek}</span></div>
 			</div>
+
 			<div className="row">
 				<div className="col-xl-6">
 					<div className="card border-0 mb-3 overflow-hidden bg-gray-800 text-white">
@@ -291,32 +294,32 @@ function DashboardV2() {
 							<div className="row">
 								<div className="col-xl-7 col-lg-8">
 									<div className="mb-3 text-gray-500">
-										<b>TOTAL SALES</b>
+										<b>TOTAL Transacciones</b>
 										<span className="ms-2">
 											<i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Total sales" data-bs-placement="top" data-bs-content="Net sales (gross sales minus discounts and returns) plus taxes and shipping. Includes orders from all sales channels."></i>
 										</span>
 									</div>
 									<div className="d-flex mb-1">
-										<h2 className="mb-0">$64,559.25</h2>
+										<h2 className="mb-0">64,559.25</h2>
 										<div className="ms-auto mt-n1 mb-n1">
 											<Chart type="line" height={'36px'} width="100" options={totalSalesChartOptions} series={totalSalesChartSeries} />
 										</div>
 									</div>
 									<div className="mb-3 text-gray-500">
-										<i className="fa fa-caret-up"></i> 33.21% compare to last week
+										<i className="fa fa-caret-up"></i> 33.21% comparado con ultima semana.
 									</div>
 									<hr className="bg-white-transparent-2" />
 									<div className="row text-truncate">
 										<div className="col-6">
-											<div className="fs-12px text-gray-500">Total sales order</div>
-											<div className="fs-18px mb-5px fw-bold">1,568</div>
+											<div className="fs-12px text-gray-500">Total Recepcion</div>
+											<div className="fs-18px mb-5px fw-bold">11,568</div>
 											<div className="progress h-5px rounded-3 bg-gray-900 mb-5px">
 												<div className="progress-bar progress-bar-striped rounded-right bg-teal" style={{width: '55%'}}></div>
 											</div>
 										</div>
 										<div className="col-6">
-											<div className="fs-12px text-gray-500">Avg. sales per order</div>
-											<div className="fs-18px mb-5px fw-bold">$41.20</div>
+											<div className="fs-12px text-gray-500">Total Entregas</div>
+											<div className="fs-18px mb-5px fw-bold">3,241.20</div>
 											<div className="progress h-5px rounded-3 bg-gray-900 mb-5px">
 												<div className="progress-bar progress-bar-striped rounded-right" style={{width: '55%'}}></div>
 											</div>
@@ -330,52 +333,53 @@ function DashboardV2() {
 						</div>
 					</div>
 				</div>
+
 				<div className="col-xl-6">
 					<div className="row">
 						<div className="col-sm-6">
 							<div className="card border-0 text-truncate mb-3 bg-gray-800 text-white">
 								<div className="card-body">
 									<div className="mb-3 text-gray-500">
-										<b className="mb-3">CONVERSION RATE</b> 
+										<b className="mb-3">Movimientos Agentes</b> 
 										<span className="ms-2"><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Conversion Rate" data-bs-placement="top" data-bs-content="Percentage of sessions that resulted in orders from total number of sessions." data-original-title="" title=""></i></span>
 									</div>
 									<div className="d-flex align-items-center mb-1">
-										<h2 className="text-white mb-0">2.19%</h2>
+										<h2 className="text-white mb-0">2,245.90</h2>
 										<div className="ms-auto">
 											<Chart type="line" height={'28px'} options={conversionRateChartOptions} series={conversionRateChartSeries} />
 										</div>
 									</div>
 									<div className="mb-4 text-gray-500 ">
-										<i className="fa fa-caret-down"></i> 0.50% compare to last week
+										<i className="fa fa-caret-down"></i>{/*  0.50% compare to last week */}
 									</div>
 									<div className="d-flex mb-2">
 										<div className="d-flex align-items-center">
 											<i className="fa fa-circle text-red fs-8px me-2"></i>
-											Added to cart
+											Saldo Efectivo
 										</div>
 										<div className="d-flex align-items-center ms-auto">
-											<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 262%</div>
-											<div className="w-50px text-end ps-2 fw-bold">3.79%</div>
+											<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 26,2%</div>
+											<div className="w-50px text-end ps-2 fw-bold">2,245.90</div>
 										</div>
 									</div>
 									<div className="d-flex mb-2">
 										<div className="d-flex align-items-center">
 											<i className="fa fa-circle text-warning fs-8px me-2"></i>
-											Reached checkout
+											Saldo Cuenta
 										</div>
 										<div className="d-flex align-items-center ms-auto">
 											<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 11%</div>
-											<div className="w-50px text-end ps-2 fw-bold">3.85%</div>
+											<div className="w-50px text-end ps-2 fw-bold">1,350.0</div>
 										</div>
 									</div>
 									<div className="d-flex">
 										<div className="d-flex align-items-center">
 											<i className="fa fa-circle text-lime fs-8px me-2"></i>
-											Sessions converted
+											Otros Gastos
 										</div>
 										<div className="d-flex align-items-center ms-auto">
 											<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 57%</div>
-											<div className="w-50px text-end ps-2 fw-bold">2.19%</div>
+											<div className="w-50px text-end ps-2 fw-bold">345.0</div>
 										</div>
 									</div>
 								</div>
@@ -385,32 +389,32 @@ function DashboardV2() {
 							<div className="card border-0 text-truncate mb-3 bg-gray-800 text-white">
 								<div className="card-body">
 									<div className="mb-3 text-gray-500">
-										<b className="mb-3">STORE SESSIONS</b> 
+										<b className="mb-3">Movimientos Asociados</b> 
 										<span className="ms-2"><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Store Sessions" data-bs-placement="top" data-bs-content="Number of sessions on your online store. A session is a period of continuous activity from a visitor." data-original-title="" title=""></i></span>
 									</div>
 									<div className="d-flex align-items-center mb-1">
-										<h2 className="text-white mb-0">70,719</h2>
+										<h2 className="text-white mb-0">70,719.00</h2>
 										<div className="ms-auto">
 											<Chart type="line" height={'28px'} options={storeSessionChartOptions} series={storeSessionChartSeries} />
 										</div>
 									</div>
 									<div className="mb-4 text-gray-500 ">
-										<i className="fa fa-caret-up"></i> 9.5% compare to last week
+										<i className="fa fa-caret-up"></i> {/* 9.5% compare to last week */}
 									</div>
 									<div className="d-flex mb-2">
 										<div className="d-flex align-items-center">
 											<i className="fa fa-circle text-teal fs-8px me-2"></i>
-											Mobile
+											Saldos
 										</div>
 										<div className="d-flex align-items-center ms-auto">
 											<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 25.7%</div>
-											<div className="w-50px text-end ps-2 fw-bold">53,210</div>
+											<div className="w-50px text-end ps-2 fw-bold">2,553.00</div>
 										</div>
 									</div>
 									<div className="d-flex mb-2">
 										<div className="d-flex align-items-center">
 											<i className="fa fa-circle text-blue fs-8px me-2"></i>
-											Desktop
+											Otros Gastos
 										</div>
 										<div className="d-flex align-items-center ms-auto">
 											<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 16.0%</div>
@@ -420,7 +424,7 @@ function DashboardV2() {
 									<div className="d-flex">
 										<div className="d-flex align-items-center">
 											<i className="fa fa-circle text-aqua fs-8px me-2"></i>
-											Tablet
+											Gastos
 										</div>
 										<div className="d-flex align-items-center ms-auto">
 											<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 7.9%</div>
@@ -433,30 +437,31 @@ function DashboardV2() {
 					</div>
 				</div>
 			</div>
+
 			<div className="row">
 				<div className="col-xl-8 col-lg-6">
 					<div className="card border-0 mb-3 bg-gray-800 text-white">
 						<div className="card-body">
 							<div className="mb-3 text-gray-500">
-								<b>VISITORS ANALYTICS</b>
-								<span className="ms-2"><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Top products with units sold" data-bs-placement="top" data-bs-content="Products with the most individual units sold. Includes orders from all sales channels." data-original-title="" title=""></i></span>
+								<b>ANALITICA TRANSACCIONES</b>
+								<span className="ms-2"><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Top products with units Cuenta" data-bs-placement="top" data-bs-content="Products with the most individual units Cuenta. Includes orders from all sales channels." data-original-title="" title=""></i></span>
 							</div>
 							<div className="row">
 								<div className="col-xl-3 col-4">
 									<h3 className="mb-1">127.1K</h3>
-									<div>New Visitors</div>
-									<div className="text-gray-500 small text-truncate"><i className="fa fa-caret-up"></i> 25.5% from previous 7 days</div>
+									<div>Recepciones</div>
+									<div className="text-gray-500 small text-truncate"><i className="fa fa-caret-up"></i> 25.5% desde 7 dias previos</div>
 								</div>
 								<div className="col-xl-3 col-4">
 									<h3 className="mb-1">179.9K</h3>
-									<div>Returning Visitors</div>
-									<div className="text-gray-500 small text-truncate"><i className="fa fa-caret-up"></i> 5.33% from previous 7 days</div>
+									<div>Entregas</div>
+									<div className="text-gray-500 small text-truncate"><i className="fa fa-caret-up"></i> 5.33% desde 7 dias previos</div>
 								</div>
-								<div className="col-xl-3 col-4">
+								{/* <div className="col-xl-3 col-4">
 									<h3 className="mb-1">766.8K</h3>
 									<div>Total Page Views</div>
 									<div className="text-gray-500 small text-truncate"><i className="fa fa-caret-up"></i> 0.323% from previous 7 days</div>
-								</div>
+								</div> */}
 							</div>
 						</div>
 						<div className="card-body p-0">
@@ -468,66 +473,117 @@ function DashboardV2() {
 						</div>
 					</div>
 				</div>
-				<div className="col-xl-4 col-lg-6">
+ 				<div className="col-xl-4 col-lg-6">
 					<div className="card bg-gray-800 border-0 text-white mb-3">
 						<div className="card-body">
 							<div className="mb-2 text-grey">
-								<b>SESSION BY LOCATION</b>
+								<b>Pendientes de Entrega</b>
 								<span className="ms-2"><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Total sales" data-bs-placement="top" data-bs-content="Net sales (gross sales minus discounts and returns) plus taxes and shipping. Includes orders from all sales channels."></i></span>
 							</div>
-							<div className="bg-black mb-3" style={{height: '192px'}}>
+							{/* <div className="bg-black mb-3" style={{height: '192px'}}>
 								<GoogleMapReact defaultCenter={map.center} defaultZoom={map.zoom}></GoogleMapReact>
-							</div>
+							</div> */}
 							<div>
 								<div className="d-flex align-items-center text-white mb-2">
-									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/us.jpg)'}}></div>
+									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/mujer.jpg)'}}></div>
 									<div className="d-flex w-100">
-										<div>United States</div>
-										<div className="ms-auto text-gray-500">39.85%</div>
+										<div>Daniela Paredes Pérez</div>
+										<div className="ms-auto text-gray-500">1139.85</div>
 									</div>
 								</div>
 								<div className="d-flex align-items-center text-white mb-2">
-									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/cn.jpg)'}}></div>
+									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/soles1.jpg)'}}></div>
 									<div className="d-flex w-100">
-										<div>China</div>
-										<div className="ms-auto text-gray-500">14.23%</div>
+										<div>Emilio Jose Rocha</div>
+										<div className="ms-auto text-gray-500">1324.23</div>
 									</div>
 								</div>
 								<div className="d-flex align-items-center text-white mb-2">
-									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/de.jpg)'}}></div>
+									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/varon.jpg)'}}></div>
 									<div className="d-flex w-100">
-										<div>Germany</div>
-										<div className="ms-auto text-gray-500">12.83%</div>
+										<div>Guillermo Castañeda</div>
+										<div className="ms-auto text-gray-500">393.85</div>
 									</div>
 								</div>
 								<div className="d-flex align-items-center text-white mb-2">
-									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/fr.jpg)'}}></div>
+									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/mujer.jpg)'}}></div>
 									<div className="d-flex w-100">
-										<div>France</div>
-										<div className="ms-auto text-gray-500">11.14%</div>
+										<div>Elizabeth Méndez Rodríguez</div>
+										<div className="ms-auto text-gray-500">1443.23</div>
+									</div>
+								</div>
+								<div className="d-flex align-items-center text-white mb-2">
+									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/varon.jpg)'}}></div>
+									<div className="d-flex w-100">
+										<div>Emilio Vilar</div>
+										<div className="ms-auto text-gray-500">312.83</div>
+									</div>
+								</div>
+								<div className="d-flex align-items-center text-white mb-2">
+									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/varon.jpg)'}}></div>
+									<div className="d-flex w-100">
+										<div>Víctor Huerta Barbero</div>
+										<div className="ms-auto text-gray-500">110.14</div>
 									</div>
 								</div>
 								<div className="d-flex align-items-center text-white mb-0">
-									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/jp.jpg)'}}></div>
+									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/varon.jpg)'}}></div>
 									<div className="d-flex w-100">
-										<div>Japan</div>
-										<div className="ms-auto text-gray-500">10.75%</div>
+										<div>Agustín Colón Herrera</div>
+										<div className="ms-auto text-gray-500">100.75</div>
 									</div>
 								</div>
+								<div className="d-flex align-items-center text-white mb-2">
+									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/varon.jpg)'}}></div>
+									<div className="d-flex w-100">
+										<div>Sixto Quintana Cortez</div>
+										<div className="ms-auto text-gray-500">390.85</div>
+									</div>
+								</div>
+								<div className="d-flex align-items-center text-white mb-2">
+									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/mujer.jpg)'}}></div>
+									<div className="d-flex w-100">
+										<div>Hilaria Quevedo Medina</div>
+										<div className="ms-auto text-gray-500">1400.23</div>
+									</div>
+								</div>
+								<div className="d-flex align-items-center text-white mb-2">
+									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/varon.jpg)'}}></div>
+									<div className="d-flex w-100">
+										<div>Jeronimo Garcia Mata</div>
+										<div className="ms-auto text-gray-500">1200.83</div>
+									</div>
+								</div>
+								<div className="d-flex align-items-center text-white mb-2">
+									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/varon.jpg)'}}></div>
+									<div className="d-flex w-100">
+										<div>Ignacio Huerta Juaquin</div>
+										<div className="ms-auto text-gray-500">1100.1</div>
+									</div>
+								</div>
+								<div className="d-flex align-items-center text-white mb-0">
+									<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/mujer.jpg)'}}></div>
+									<div className="d-flex w-100">
+										<div>Yazmin Vargas Castillo</div>
+										<div className="ms-auto text-gray-500">1000.75</div>
+									</div>
+								</div>
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div className="row">
+
 				<div className="col-xl-4 col-lg-6">
 					<div className="card border-0 mb-3 bg-gray-900 text-white">
 						<div className="card-body" style={{ background: 'no-repeat bottom right', backgroundImage: 'url(/assets/img/svg/img-4.svg)', backgroundSize: 'auto 60%'}}>
 							<div className="mb-3 text-gray-500 ">
-								<b>SALES BY SOCIAL SOURCE</b>
+								<b>RECEPCION X SUCURSAL</b>
 								<span className="text-gray-500 ms-2"><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Sales by social source" data-bs-placement="top" data-bs-content="Total online store sales that came from a social referrer source."></i></span>
 							</div>
-							<h3 className="mb-10px">$55,547.89</h3>
+							<h3 className="mb-10px">S/ 55,547.89</h3>
 							<div className="text-gray-500 mb-1px"><i className="fa fa-caret-up"></i> 45.76% increased</div>
 						</div>
 						<div className="widget-list rounded-bottom" data-bs-theme="dark">
@@ -536,10 +592,10 @@ function DashboardV2() {
 									<i className="fab fa-apple bg-indigo text-white"></i>
 								</div>
 								<div className="widget-list-content">
-									<div className="widget-list-title">Apple Store</div>
+									<div className="widget-list-title">Money Flassh Secocha</div>
 								</div>
 								<div className="widget-list-action text-nowrap text-gray-500">
-									$34,840.17
+									S/ 34,840.17
 								</div>
 							</Link>
 							<Link to="/dashboard/v3" className="widget-list-item">
@@ -547,10 +603,10 @@ function DashboardV2() {
 									<i className="fab fa-facebook-f bg-blue text-white"></i>
 								</div>
 								<div className="widget-list-content">
-									<div className="widget-list-title">Facebook</div>
+									<div className="widget-list-title">Money Flash Camana</div>
 								</div>
 								<div className="widget-list-action text-nowrap text-gray-500">
-									$12,502.67
+								S/ 12,502.67
 								</div>
 							</Link>
 							<Link to="/dashboard/v3" className="widget-list-item">
@@ -558,10 +614,10 @@ function DashboardV2() {
 									<i className="fab fa-twitter bg-info text-white"></i>
 								</div>
 								<div className="widget-list-content">
-									<div className="widget-list-title">Twitter</div>
+									<div className="widget-list-title">Money Fash Camana</div>
 								</div>
 								<div className="widget-list-action text-nowrap text-gray-500">
-									$4,799.20
+								S/ 4,799.20
 								</div>
 							</Link>
 							<Link to="/dashboard/v3" className="widget-list-item">
@@ -569,10 +625,10 @@ function DashboardV2() {
 									<i className="fab fa-google bg-red text-white"></i>
 								</div>
 								<div className="widget-list-content">
-									<div className="widget-list-title">Google Adwords</div>
+									<div className="widget-list-title">Money Flash Avelino</div>
 								</div>
 								<div className="widget-list-action text-nowrap text-gray-500">
-									$3,405.85
+								S/ 3,405.85
 								</div>
 							</Link>
 							<Link to="/dashboard/v3" className="widget-list-item pb-3px rounded-bottom">
@@ -580,72 +636,75 @@ function DashboardV2() {
 									<i className="fab fa-instagram bg-pink text-white"></i>
 								</div>
 								<div className="widget-list-content">
-									<div className="widget-list-title">Instagram</div>
+									<div className="widget-list-title">Money Flash Alto Molino</div>
 								</div>
 								<div className="widget-list-action text-nowrap text-gray-500">
-									$0.00
+								S/ 100.00
 								</div>
 							</Link>
 						</div>
 					</div>
 				</div>
+
 				<div className="col-xl-4 col-lg-6">
 					<div className="card border-0 mb-3 bg-gray-800 text-white">
+					
 						<div className="card-body">
+						
 							<div className="mb-3 text-gray-500">
-								<b>TOP PRODUCTS BY UNITS SOLD</b>
-								<span className="ms-2 "><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Top products with units sold" data-bs-placement="top" data-bs-content="Products with the most individual units sold. Includes orders from all sales channels."></i></span>
+								<b>SALDO DISPONIBLE X AGENTE</b>
+								<span className="ms-2 "><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Top products with units Cuenta" data-bs-placement="top" data-bs-content="Products with the most individual units Cuenta. Includes orders from all sales channels."></i></span>
 							</div>
 							<div className="d-flex align-items-center mb-15px">
 								<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
-									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-8.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/panterita2.png) center no-repeat', backgroundSize: 'auto 100%'}}></div>
 								</div>
 								<div className="text-truncate">
-									<div>Apple iPhone XR (2023)</div>
-									<div className="text-gray-500">$799.00</div>
+									<div>AGENTE MULTIENVIOS BN</div>
+									<div className="text-gray-500">Efctvo: S/ 799.00</div>
 								</div>
 								<div className="ms-auto text-center">
-									<div className="fs-13px">195</div>
-									<div className="text-gray-500 fs-10px">sold</div>
+									<div className="fs-13px">S/ 195.00</div>
+									<div className="text-gray-500 fs-10px">Cuenta</div>
 								</div>
 							</div>
 							<div className="d-flex align-items-center mb-15px">
 								<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
-									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-9.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/panterita2.png) center no-repeat', backgroundSize: 'auto 100%'}}></div>
 								</div>
 								<div className="text-truncate">
-									<div>Apple iPhone XS (2023)</div>
-									<div className="text-gray-500">$1,199.00</div>
+									<div>INTERBANK DINA</div>
+									<div className="text-gray-500">Efctvo: S/ 1,199.00</div>
 								</div>
 								<div className="ms-auto text-center">
 									<div className="fs-13px">185</div>
-									<div className="text-gray-500 fs-10px">sold</div>
+									<div className="text-gray-500 fs-10px">Cuenta</div>
 								</div>
 							</div>
 							<div className="d-flex align-items-center mb-15px">
 								<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
-									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-10.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/panterita2.png) center no-repeat', backgroundSize: 'auto 100%'}}></div>
 								</div>
 								<div className="text-truncate">
-									<div>Apple iPhone XS Max (2023)</div>
-									<div className="text-gray-500">$3,399</div>
+									<div>KASNET ALTO MOLINO</div>
+									<div className="text-gray-500">Efctvo: S/ 3,399</div>
 								</div>
 								<div className="ms-auto text-center">
 									<div className="fs-13px">129</div>
-									<div className="text-gray-500 fs-10px">sold</div>
+									<div className="text-gray-500 fs-10px">Cuenta</div>
 								</div>
 							</div>
 							<div className="d-flex align-items-center mb-15px">
 								<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
-									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-11.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/panterita2.png) center no-repeat', backgroundSize: 'auto 100%'}}></div>
 								</div>
 								<div className="text-truncate">
-									<div>Huawei Y5 (2023)</div>
-									<div className="text-gray-500">$99.00</div>
+									<div>BN MFC LUIS SILLO</div>
+									<div className="text-gray-500">Efctvo: S/ 99.00</div>
 								</div>
 								<div className="ms-auto text-center">
 									<div className="fs-13px">96</div>
-									<div className="text-gray-500 fs-10px">sold</div>
+									<div className="text-gray-500 fs-10px">Cuenta</div>
 								</div>
 							</div>
 							<div className="d-flex align-items-center">
@@ -653,18 +712,100 @@ function DashboardV2() {
 									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-12.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
 								</div>
 								<div className="text-truncate">
-									<div>Huawei Nova 4 (2023)</div>
-									<div className="text-gray-500">$499.00</div>
+									<div>AGENTE MOVISTAR</div>
+									<div className="text-gray-500">Efctvo: S/ 499.00</div>
 								</div>
 								<div className="ms-auto text-center">
 									<div className="fs-13px">55</div>
-									<div className="text-gray-500 fs-10px">sold</div>
+									<div className="text-gray-500 fs-10px">Cuenta</div>
 								</div>
 							</div>
+						
 						</div>
+						
 					</div>
 				</div>
+
 				<div className="col-xl-4 col-lg-6">
+					<div className="card border-0 mb-3 bg-gray-800 text-white">
+					
+						<div className="card-body">
+						
+							<div className="mb-3 text-gray-500">
+								<b>SALDO DISPONIBLE X ASOCIADO</b>
+								<span className="ms-2 "><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Top products with units Cuenta" data-bs-placement="top" data-bs-content="Products with the most individual units Cuenta. Includes orders from all sales channels."></i></span>
+							</div>
+							<div className="d-flex align-items-center mb-15px">
+								<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/panterita.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+								</div>
+								<div className="text-truncate">
+									<div>AGENTE MULTIENVIOS BN (2023)</div>
+									<div className="text-gray-500">S/ 799.00</div>
+								</div>
+								<div className="ms-auto text-center">
+									<div className="fs-13px">195</div>
+									<div className="text-gray-500 fs-10px">Cuenta</div>
+								</div>
+							</div>
+							<div className="d-flex align-items-center mb-15px">
+								<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/panterita.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+								</div>
+								<div className="text-truncate">
+									<div>INTERBANK DINA</div>
+									<div className="text-gray-500">S/ 1,199.00</div>
+								</div>
+								<div className="ms-auto text-center">
+									<div className="fs-13px">185</div>
+									<div className="text-gray-500 fs-10px">Cuenta</div>
+								</div>
+							</div>
+							<div className="d-flex align-items-center mb-15px">
+								<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/panterita.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+								</div>
+								<div className="text-truncate">
+									<div>KASNET ALTO MOLINO</div>
+									<div className="text-gray-500">S/ 3,399</div>
+								</div>
+								<div className="ms-auto text-center">
+									<div className="fs-13px">129</div>
+									<div className="text-gray-500 fs-10px">Cuenta</div>
+								</div>
+							</div>
+							<div className="d-flex align-items-center mb-15px">
+								<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/panterita.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+								</div>
+								<div className="text-truncate">
+									<div>BN MFC LUIS SILLO</div>
+									<div className="text-gray-500">S/ 99.00</div>
+								</div>
+								<div className="ms-auto text-center">
+									<div className="fs-13px">96</div>
+									<div className="text-gray-500 fs-10px">Cuenta</div>
+								</div>
+							</div>
+							<div className="d-flex align-items-center">
+								<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+									<div className="h-100 w-100" style={{background: 'url(/assets/img/product/panterita.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+								</div>
+								<div className="text-truncate">
+									<div>AGENTE MOVISTAR</div>
+									<div className="text-gray-500">S/ 499.00</div>
+								</div>
+								<div className="ms-auto text-center">
+									<div className="fs-13px">55</div>
+									<div className="text-gray-500 fs-10px">Cuenta</div>
+								</div>
+							</div>
+						
+						</div>
+						
+					</div>
+				</div>
+				{/* <div className="col-xl-4 col-lg-6">
 					<div className="card border-0 mb-3 bg-gray-800 text-white">
 						<div className="card-body">
 							<div className="mb-3 text-gray-500">
@@ -720,7 +861,8 @@ function DashboardV2() {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> */}
+
 			</div>
 		</div>
 	)

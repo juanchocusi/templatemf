@@ -1,12 +1,12 @@
 const Menu = [
   { path: 'dashboard', icon: 'fa fa-sitemap', title: 'Gerencial',
     children: [
-      { path: 'dashboard/v1', title: 'Giros/Transferencias' },
-      { path: 'dashboard/v2', title: 'Totales' },
-      { path: 'dashboard/v3', title: 'Ticket Mensaje' }
+      { path: 'dashboard/v3', title: 'Giros/Transferencias' },
+      { path: 'dashboard/v2_', title: 'Totales' },
+      { path: 'dashboard/v3_', title: 'Ticket Mensaje' }
     ]
   },
-  { path: '/email', icon: 'fa fa-hdd', title: 'Recepcion', badge: '10',
+  { path: '/email', icon: 'fa fa-hdd', title: 'Recepcion',
     children: [
    /*    { path: '/email/inbox', title: 'Inbox' },
       { path: '/email/compose', title: 'Compose' },
@@ -14,12 +14,12 @@ const Menu = [
     ]
   },
 /*   { path: '/widgets', icon: 'fab fa-simplybuilt', title: 'Entrega', label: 'NEW' }, */
-  { path: '/widgets', icon: 'fab fa-simplybuilt', title: 'Entrega' },
-  { path: '/ui', icon: 'fa fa-gem', title: 'Herramientas', label: 'NEW',
+  { path: '/widgets_', icon: 'fab fa-simplybuilt', title: 'Entrega', badge: '12'},
+  { path: '/ui', icon: 'fa fa-gem', title: 'Herramientas',
     children: [
-      { path: '/ui/general', title: 'Supervisa', highlight: true },
-      { path: '/ui/typography', title: 'Cierre Diario' },
-      { path: '/ui/tabs-accordion', title: 'Boletas' },
+      { path: '/ui/general_', title: 'Supervisa', highlight: true },
+      { path: '/ui/typography_', title: 'Cierre Diario' },
+      { path: '/ui/tabs-accordion_', title: 'Boletas' },
      /*  { path: '/ui/modal-notification', title: 'Modal & Notification' },
       { path: '/ui/widget-boxes', title: 'Widget Boxes' },
       { path: '/ui/media-object', title: 'Media Object' },
@@ -42,19 +42,19 @@ const Menu = [
   }, */
   { path: '/table', icon: 'fa fa-table', title: 'Tablas',
     children: [
-      { path: '/table/elements', title: 'Usuarios' },
-      { path: '/table/plugins', title: 'Sucursales' },
-      { path: '/table/plugins', title: 'Bancos' },
-      { path: '/table/plugins', title: 'Agentes' },
-      { path: '/table/plugins', title: 'Transacciones' },
-      { path: '/table/plugins', title: 'Clientes' },
-      { path: '/table/plugins', title: 'Conceptos' }
+      { path: '/table/elements_', title: 'Usuarios' },
+      { path: '/table/plugins_', title: 'Sucursales' },
+      { path: '/table/plugins_', title: 'Bancos' },
+      { path: '/table/plugins_', title: 'Agentes' },
+      { path: '/table/plugins_', title: 'Transacciones' },
+      { path: '/table/plugins_', title: 'Clientes' },
+      { path: '/table/plugins_', title: 'Conceptos' }
     ]
   },
   { path: '/pos', icon: 'fa fa-cash-register', title: 'Cuentas', label: 'NEW',
     children: [
-      { path: '/pos/customer-order', title: 'Agentes' },
-      { path: '/pos/kitchen-order', title: 'Cuentas Asociado' },
+      { path: '/pos/customer-order_', title: 'Agentes' },
+      { path: '/pos/kitchen-order_', title: 'Cuentas Asociado' },
       /* { path: '/pos/counter-checkout', title: 'Counter Checkout' },
       { path: '/pos/table-booking', title: 'Table Booking' },
       { path: '/pos/menu-stock', title: 'Menu Stock' }, */
@@ -112,9 +112,9 @@ const Menu = [
     ]
   }, */
   
-  { path: '/helper', icon: 'fa fa-medkit', title: 'Helper',
+  { path: '/helper', icon: 'fa fa-medkit', title: 'Ayuda',
     children: [
-      { path: '/helper/css', title: 'Predefined CSS Classes' }
+      /* { path: '/helper/css', title: 'Predefined CSS Classes' } */
     ]
   },
   { path: '/user', icon: 'fa fa-key', title: 'Login & Registro',
@@ -122,7 +122,7 @@ const Menu = [
       /* { path: '/user/login-v1', title: 'Login' },
       { path: '/user/login-v2', title: 'Login v2' }, */
       { path: '/user/login-v3', title: 'Login v3' },
-      { path: '/user/register-v3', title: 'Register v3' }
+      { path: '/user/register-v3_', title: 'Register v3' }
     ]
   },
   /* { path: '/menu', icon: 'fa fa-align-left', title: 'Menu Level',
@@ -143,6 +143,9 @@ const Menu = [
       { path: '/menu/menu-1-3', title: 'Menu 1.3' },
     ]
   }, */
+  { path: '/recepcion', icon: 'fa fa-calendar', title: 'Recepcion' ,
+
+},
 ]
 
 export default Menu;

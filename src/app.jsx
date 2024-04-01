@@ -322,7 +322,7 @@ function App() {
 				{appSidebarTwo && <SidebarRight />}
 				{appTopMenu && <TopMenu />}
 				{!appContentNone && <Content />}
-				<ThemePanel />
+				{/* <ThemePanel /> */}
 			</div>
 		</AppSettings.Provider>
 	);
